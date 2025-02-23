@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itheima.mapper.WebUserMapper">
+    <sql id="commonSelect">
+        select id, name, age, gender, phone
+    </sql>
+    <update id="update2">
+        update webuser
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="phone != null">
+                phone = #{gender}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <delete id="deleteByIds">
+        delete from webuser where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="listWebUser" resultType="com.itheima.pojo.WebUser">
+        <include refid="commonSelect"></include>
+        from webuser
+        <where>
+            <if test="name != null">
+                name like concat('%', #{name}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>

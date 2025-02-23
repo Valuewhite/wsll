@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="maven-project01" />
+        <module name="springboot-mybatis-crud" />
+        <module name="firstdemo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11">
+      <module name="firstdemo" target="11" />
+      <module name="maven-project01" target="1.8" />
+      <module name="springboot-mybatis-crud" target="11" />
+      <module name="springboot-mybatis-quickstart" target="11" />
+      <module name="springboot-web-quickstart" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
